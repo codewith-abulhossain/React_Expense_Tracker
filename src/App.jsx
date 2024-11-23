@@ -138,7 +138,11 @@ function App() {
     <>
       <div className="max-w-6xl mx-auto mt-20">
         <div className="mb-4">
-          <ExpenseForm />
+          <ExpenseForm
+            onSubmit={(data) =>
+              setExpenses([...expenses, { ...data, id: expenses.length + 1 }])
+            }
+          />
         </div>
         <div className="max-w-5xl mx-auto border-4 border-purple-800 p-6 rounded-2xl">
           {expenses.length !== 0 && (

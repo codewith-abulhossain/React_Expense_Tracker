@@ -21,7 +21,6 @@ export const ExpensesList = ({ expenses, handleRemoveCost }) => {
             <tr key={expense.id}>
               <td>{expense.id}</td>
               <td>{expense.category}</td>
-              <td>{expense.date}</td>
               <td>{expense.description}</td>
               <td>{expense.amount}</td>
               <td>
@@ -34,6 +33,18 @@ export const ExpensesList = ({ expenses, handleRemoveCost }) => {
               </td>
             </tr>
           ))}
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td className="font-bold text-xl">Total</td>
+            <td className="font-bold text-xl">
+              TK:{" "}
+              {expenses
+                .reduce((total, exp) => total + parseInt(exp.amount), 0)
+                .toFixed(2)}{" "}
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>
